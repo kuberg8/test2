@@ -71,12 +71,10 @@ function Buyers(props) {
 
 	let changePage = (page) => {
 		if (page === 1) {
-			setBuyers(buyersAll.filter( (item, index) => index > -1 && index < 5))
-		} else if (page === 2) {
-			setBuyers(buyersAll.filter( (item, index) => index > 4 && index < 10))
-		} else if (page === 3) {
-			setBuyers(buyersAll.filter( (item, index) => index > 9 && index < 15))
-		}
+			setBuyers(buyersAll.filter( (item, index) => index >= 0 && index < 5))
+		} else {
+			setBuyers(buyersAll.filter( (item, index) => index >= 0 + (5 * (page - 1)) && index < 5 + (5 * (page - 1))))
+		} 
 	}
 
 
@@ -143,7 +141,7 @@ function Buyers(props) {
 					})
 				}
 			</table>		
-			{numberBuyers === 5 ? <Paginator {...props} changePage={changePage} /> : null}	
+			{numberBuyers === 5 ? <Paginator {...props} changePage={changePage} newBuyers={buyers} /> : null}	
 		</div>
 	)
 }

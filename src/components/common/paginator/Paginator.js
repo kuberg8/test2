@@ -17,11 +17,12 @@ function Paginator(props, portionSize = 3) {
 	let rightPageNumber = portionNumber * portionSize
 
 
+
     return (
 		<div className={pg.pagination}>
 			{pageMas.map(item => {
 				return (
-					<span onClick={() => { props.changePage(item)} } className={pg.pagination_item}>{item}</span>
+					<span onClick={() => { props.changePage(item)} } className={+props.newBuyers[4].id / 5 === item ? pg.pagination_item + " " + pg.active : pg.pagination_item}>{item}</span>
 				)
 			})}
 		</div>
