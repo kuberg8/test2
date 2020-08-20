@@ -13,8 +13,8 @@ function Paginator(props, portionSize = 3) {
 
 	let portionCount = Math.ceil(pagesCount / portionSize)
 	let [portionNumber, setPortionNumber] = useState(1)
-	let leftPageNumber = (portionNumber - 1) * portionSize + 1
-	let rightPageNumber = portionNumber * portionSize
+	//let leftPageNumber = (portionNumber - 1) * portionSize + 1
+	//let rightPageNumber = portionNumber * portionSize
 
 
 
@@ -22,7 +22,13 @@ function Paginator(props, portionSize = 3) {
 		<div className={pg.pagination}>
 			{pageMas.map(item => {
 				return (
-					<span onClick={() => { props.changePage(item)} } className={+props.newBuyers[4].id / 5 === item ? pg.pagination_item + " " + pg.active : pg.pagination_item}>{item}</span>
+					<span 
+					onClick={() => { 
+						props.changePage(item)
+						setPortionNumber(item)
+					}} 
+					className={portionNumber === item ? pg.pagination_item + " " + pg.active :
+					 pg.pagination_item}>{item}</span>
 				)
 			})}
 		</div>

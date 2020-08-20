@@ -141,7 +141,7 @@ function Buyers(props) {
 					})
 				}
 			</table>		
-			{numberBuyers === 5 ? <Paginator {...props} changePage={changePage} newBuyers={buyers} /> : null}	
+			{numberBuyers === 5 ? <Paginator {...props} changePage={changePage} /> : null}	
 		</div>
 	)
 }
