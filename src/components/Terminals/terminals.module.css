@@ -1,0 +1,106 @@
+.content {
+	display: block;
+	width: 90%;
+	margin: 120px auto;
+}
+
+.table {
+	width: 100%;
+}
+
+.table td {
+	text-align: center;
+	border: 2px solid white;
+	padding: 20px;
+	border-radius: 10px;
+	max-width: 1px;
+    overflow: auto; 
+}
+
+.table td:nth-child(1) {
+	white-space: nowrap; 
+    overflow: auto; 
+}
+
+
+.table tr:nth-child(1) {
+	font-weight: bold;
+}
+.table tr:nth-child(1) td {
+	border: none;
+}
+
+
+
+
+.inputs {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	width: 100%;
+	padding: 30px 0;
+}
+.inputs input {
+	outline: none;
+	height: 50px;
+	width: 100%;
+	margin: 0 10px;
+	border-radius: 10px;
+	border: none;
+	padding: 0 20px;
+	font-size: 20px;
+}
+
+.inputs button {
+	display: block;
+	outline: none;
+	height: 50px;
+	width: 90%;
+	margin: 0 auto;
+	border-radius: 10px;
+	border: none;
+	padding: 0 20px;
+	cursor: pointer;
+	font-size: 20px;
+}
+
+
+.inputs_item {
+	display: flex;
+	justify-content: space-around;
+	padding-bottom: 20px;
+}
+
+
+.button {
+	display: block;
+	outline: none;
+	height: 50px;
+	width: 20%;
+	margin: 0 auto;
+	border-radius: 10px;
+	border: none;
+	padding: 0 20px;
+	cursor: pointer;
+	font-size: 20px;
+	margin-top: 20px;
+}
+
+
+@media(max-width: 778px) {
+	.inputs_item {
+		flex-direction: column;
+	}
+
+	.inputs input {
+		display: block;
+		width: 88%;
+		border-radius: 10px;
+		margin: 10px auto;
+	}	
+
+
+	.button {
+		width: 90%;
+	}		
+}

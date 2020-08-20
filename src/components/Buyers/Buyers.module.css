@@ -1,0 +1,87 @@
+.content {
+	display: block;
+	width: 90%;
+	margin: 150px auto 100px;
+	overflow: auto;
+}
+
+
+.table {
+	width: 100%;
+	border: 1px solid white;
+	border-spacing: 0px;
+	border-collapse: collapse;	
+}
+
+.table th {
+	text-align: center;
+	border: 1px solid white;
+	padding: 5px;
+}
+
+.table td {
+	text-align: center;
+	border: 1px solid white;
+	padding: 5px;
+}
+
+.table a {
+	color: white;
+}
+
+
+
+.select {
+	display: flex;
+	justify-content: space-around;
+	margin: 50px 0;
+}
+
+.select select {
+	padding: 10px;
+	border-radius: 10px;
+	font-size: 20px;
+	outline: none;
+}
+
+.select option {
+	
+}
+
+
+
+.user {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: 160px auto 50px;
+	width: 50%;
+	font-size: 40px;
+}
+
+.user table {
+	border: 3px solid white;
+}
+
+.user td {
+	border: 2px solid white;
+	padding: 15px;
+	text-align: center;
+}
+
+
+@media(max-width: 778px)  {
+	.table {	
+		font-size: 12px;
+	}	
+
+	.select select {
+		padding: 5px;
+		font-size: 15px;
+	}	
+
+	.user {
+		width: 95%;
+		font-size: 25px;
+	}	
+}
