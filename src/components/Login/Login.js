@@ -1,7 +1,7 @@
 import React from 'react';
 import lg from './login.module.css';
 import {Field, reduxForm} from 'redux-form'
-import {required, minLengthCreator} from '../../utils/validators.js'
+import {required, minLengthCreator, isHaveUppercase, isHaveNumber} from '../../utils/validators.js'
 import {Input} from '../common/FormsControls/FormsControls.js'
 import {Redirect} from 'react-router-dom'
 
@@ -25,7 +25,7 @@ function LoginForm(props) {
 					placeholder="Password" 
 					name="password" 
 					component={Input}
-					validate={[required, minLength8]} />
+					validate={[required, minLength8, isHaveUppercase, isHaveNumber]} />
 			</div>
 			{props.error ?
 				<div className={lg.error}>

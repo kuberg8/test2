@@ -12,7 +12,6 @@
 	text-align: center;
 	border: 2px solid white;
 	padding: 20px;
-	border-radius: 10px;
 	max-width: 1px;
     overflow: auto; 
 }
@@ -99,8 +98,12 @@
 		margin: 10px auto;
 	}	
 
-
+	
+	.inputs button {
+		background: #4db9e0;
+	}
 	.button {
 		width: 90%;
+		background: #4db9e0;
 	}		
 }
