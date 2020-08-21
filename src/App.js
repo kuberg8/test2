@@ -34,7 +34,7 @@ function App() {
 
 					    <Route exact path="*" render={ () => <NotFound />} />
 				    </Switch>
-				 </span>
+				</span>
 			    <footer>Copyright © 2020</footer>
 			</div>
 		</BrowserRouter>

@@ -13,7 +13,7 @@ function Links() {
         </NavLink>
         <NavLink to="buyers" activeClassName={cl.active}>
         	<div className={cl.item}>
-        		Клиенты
+        		Покупатели
         	</div>
         </NavLink>       
     </div>

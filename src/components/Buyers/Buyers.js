@@ -9,10 +9,10 @@ import Paginator from '../common/paginator/Paginator.js'
 
 
 function Buyers(props) {
-	let [numberBuyers, setNumberBuyers] = useState('Отобразить всех')
-
+	let [amountBuyers, setAmountBuyers] = useState('Отобразить всех')
 	let [sortName, setsortName] = useState(props.sortName)
 	let [buyers, setBuyers] = useState(props.buyersData)	
+	let [portionNumber, setPortionNumber] = useState(1)
 
 
 
@@ -62,7 +62,6 @@ function Buyers(props) {
 
 
 	let buyersAll = props.buyersData
-
 	let buyers10 = buyers.filter( (item, index) => index < 10)
 	let buyers5 = buyers.filter( (item, index) => index > -1 && index < 5)
 
@@ -81,8 +80,7 @@ function Buyers(props) {
 
 	let selectByName = React.createRef()
 	function sortBuyers() {
-		setBuyers(buyersAll)
-		setsortName(selectByName.current.value)
+		setPortionNumber(1)
 		props.sortBuyers(selectByName.current.value)
 	}
 
@@ -90,7 +88,8 @@ function Buyers(props) {
 	let selectByAmount = React.createRef()
 	function showBuyers() {
 		setBuyers(buyersAll)
-		setNumberBuyers(+selectByAmount.current.value) 
+		setPortionNumber(1)
+		setAmountBuyers(+selectByAmount.current.value) 
 	}	
 
 
@@ -99,7 +98,7 @@ function Buyers(props) {
 	return (
 		<div className={br.content}>
 			<span className={br.select}>
-				<select value={props.sortName} onChange={sortBuyers} ref={selectByName}>
+				<select value={sortName} onChange={sortBuyers} ref={selectByName}>
 					<option value='id'>Сортировать</option>
 					<option value='averageСheck'>Средний чек</option>
 					<option value='shoppingCount'>Количество Покупок</option>
@@ -107,7 +106,7 @@ function Buyers(props) {
 					<option value='name'>По имени</option>
 				</select>
 
-				<select value={numberBuyers} onChange={showBuyers} ref={selectByAmount}>
+				<select value={amountBuyers} onChange={showBuyers} ref={selectByAmount}>
 					<option value='Отобразить всех'>Отобразить всех</option>
 					<option value='5'>по 5</option>
 					<option value='10'>top-10</option>
@@ -122,8 +121,8 @@ function Buyers(props) {
 					<th>Количество покупок</th>
 					<th>Общая выручка</th>
 				</tr>
-				{(numberBuyers === 10 ? buyers10 :
-					numberBuyers === 5 ? buyers5 :
+				{(amountBuyers === 10 ? buyers10 :
+					amountBuyers === 5 ? buyers5 :
 					buyers).map( (item) => {
 						return (
 							<tr key={item.id}>
@@ -141,7 +140,11 @@ function Buyers(props) {
 					})
 				}
 			</table>		
-			{numberBuyers === 5 ? <Paginator {...props} changePage={changePage} /> : null}	
+			{amountBuyers === 5 ? <Paginator 
+				{...props} 
+				changePage={changePage} 
+				portionNumber={portionNumber}
+				setPortionNumber={setPortionNumber} /> : null}	
 		</div>
 	)
 }
