@@ -12,6 +12,7 @@ import HeaderContainer from './components/Header/HeaderContainer.js'
 import LoginContainer from './components/Login/LoginContainer.js'
 import TerminalsContainer from './components/Terminals/TerminalsContainer.js'
 import BuyersContainer from './components/Buyers/BuyersContainer.js'
+import UserContainer from './components/Buyers/user/UserContainer.js'
 import NotFound from './components/NotFound/NotFound.js'
 
 
@@ -26,7 +27,9 @@ function App() {
 				    <Switch>
 						<Route exact path="/terminals" render={ () => <TerminalsContainer />} />
 
-						<Route exact path="/buyers:userId?" render={ () => <BuyersContainer />} />
+						<Route exact path="/buyers" render={ () => <BuyersContainer />} />
+
+						<Route exact path="/buyers/:userId?" render={ () => <UserContainer  />} />
 
 						<Route exact path="/login" render={ () => <LoginContainer />} />
 

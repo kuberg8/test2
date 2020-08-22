@@ -20,7 +20,7 @@ let initialState = {
 		{id: 14, name:"Ольга", averageСheck: 1300, shoppingCount: 1, totalRevenues: 1300},
 		{id: 15, name:"Виктор", averageСheck: 289, shoppingCount: 10, totalRevenues: 2890},
 	],
-	sortName: 'id'
+	//sortName: 'id'
 }
 
 
@@ -39,7 +39,7 @@ function buyersReducer(state = initialState, action) {
 		return {
 			...state,
 			buyersData: [...arr],
-			sortName: sortType
+			//sortName: sortType
 		}		
 	}
 

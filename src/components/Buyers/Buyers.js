@@ -10,15 +10,18 @@ import Paginator from '../common/paginator/Paginator.js'
 
 function Buyers(props) {
 	let [amountBuyers, setAmountBuyers] = useState('Отобразить всех')
-	let [sortName, setsortName] = useState(props.sortName)
+	let [sortName, setSortName] = useState('id')  // props.sortName
 	let [buyers, setBuyers] = useState(props.buyersData)	
 	let [portionNumber, setPortionNumber] = useState(1)
 
 
 
+
+	/*
 	useEffect( () => {
-		setsortName(props.sortName)
+		setSortName(props.sortName)
 	}, [props.sortName])
+	*/
 
 	useEffect( () => {
 		setBuyers(props.buyersData)
@@ -27,37 +30,11 @@ function Buyers(props) {
 
 
 
-
-	let userId = +props.match.params.userId
 	
 
 	if(props.isAuth === false) {
 		return	<Redirect to={"/login"} />
-	} else if (props.buyersData.some(item => item.id === userId)) {
-
-		let man = props.buyersData.find(item => item.id === userId)
-		return (
-			<div className={br.user}>
-				<table cols='2' align='center'>
-					<tr>
-						<td>ID</td><td>{man.id}</td>
-					</tr>
-					<tr>
-						<td>Name</td><td>{man.name}</td>
-					</tr>
-					<tr>
-						<td>Средний чек</td><td>{man.averageСheck}</td>
-					</tr>
-					<tr>
-						<td>Количество покупок</td><td>{man.shoppingCount}</td>
-					</tr>
-					<tr>
-						<td>Общая выручка</td><td>{man.totalRevenues}</td>
-					</tr>
-				</table>
-			</div>			
-		)
-	}	
+	}
 
 
 
@@ -81,6 +58,7 @@ function Buyers(props) {
 	let selectByName = React.createRef()
 	function sortBuyers() {
 		setPortionNumber(1)
+		setSortName(selectByName.current.value) // если брать sortName из props, то здесь не надо setSortName, так как есть useEffect
 		props.sortBuyers(selectByName.current.value)
 	}
 
@@ -127,7 +105,7 @@ function Buyers(props) {
 						return (
 							<tr key={item.id}>
 								<td>
-							        <NavLink to={"/buyers" + item.id}>	        	
+							        <NavLink to={"/buyers/" + item.id}>	        	
 							        	{item.id}
 							        </NavLink>			
 								</td>
