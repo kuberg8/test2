@@ -18,6 +18,7 @@ export const minLengthCreator = (minLength) => (value) => {
 
 
 export function isHaveUppercase(password) {
+	/* Первый вариант решения
 	if (password === password.toLowerCase()) {
 		return 'Легкий пароль'
 	} else {
@@ -29,18 +30,20 @@ export function isHaveUppercase(password) {
 				}				
 			}
 		}
-		return 'Легкий пароль'
 	}
+	*/
+	if(password.search(/[A-Z]/) != -1) {
+		return undefined
+	}
+
+	return 'Легкий пароль'
 }
 
 
 export function isHaveNumber(password) {
-	let numbers = ['1','2','3','4','5','6','7','8','9','0']
-	for(let key of password) {
-		for(let key2 of numbers)
-		if (key === key2) {
-			return undefined	
-		}
+	if (password.search(/[0-9]/) != -1) {
+		return undefined	
 	}
+
 	return 'Легкий пароль'	
 }
