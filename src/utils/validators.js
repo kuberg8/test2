@@ -9,7 +9,7 @@ export function required(value) {
 
 
 export const minLengthCreator = (minLength) => (value) => {
-	if(value.length < minLength) {
+	if(value && value.length < minLength) {
 		return `Min symbols - ${minLength}`
 	} else {
 		return undefined
@@ -32,7 +32,7 @@ export function isHaveUppercase(password) {
 		}
 	}
 	*/
-	if(password.search(/[A-Z]/) != -1) {
+	if(password && password.search(/[A-Z]/) != -1) {
 		return undefined
 	}
 
@@ -41,7 +41,7 @@ export function isHaveUppercase(password) {
 
 
 export function isHaveNumber(password) {
-	if (password.search(/[0-9]/) != -1) {
+	if (password && password.search(/[0-9]/) != -1) {
 		return undefined	
 	}
 

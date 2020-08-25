@@ -42,6 +42,11 @@ const TerminalsReduxForm = reduxForm({
 
 function Terminals(props) {
 
+	if(props.isAuth === false) {
+		return	<Redirect to={"/login"} />
+	}
+		
+
 	const onSubmit = (formData) => {
 		console.log()
 		if(formData.terminal && formData.info) {
@@ -50,10 +55,6 @@ function Terminals(props) {
 			formData.info = null
 		}
 	}	
-
-	if(props.isAuth === false) {
-		return	<Redirect to={"/login"} />
-	}
 
 	let terminals = props.terminalsData.map( (item) => {
 		return (

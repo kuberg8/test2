@@ -6,15 +6,11 @@ import {NavLink} from 'react-router-dom';
 function Links() {
   return (
     <div className={cl.links}>
-        <NavLink to="terminals" activeClassName={cl.active}>
-        	<div className={cl.item}>
+        <NavLink to={location => ({ ...location, pathname: "/terminals" })} className={cl.item} activeClassName={cl.active}>
         		Терминалы
-        	</div>
         </NavLink>
-        <NavLink to="buyers" activeClassName={cl.active}>
-        	<div className={cl.item}>
+        <NavLink to={location => ({ ...location, pathname: "/buyers" })} className={cl.item} activeClassName={cl.active}>
         		Покупатели
-        	</div>
         </NavLink>       
     </div>
   )

@@ -1,7 +1,6 @@
 import React from 'react';
 
-import {addTerminalsActionCreator} from '../../redux/terminals-reducer.js'
-import {deleteTerminalsActionCreator} from '../../redux/terminals-reducer.js'
+import {addTerminalsActionCreator, deleteTerminalsActionCreator} from '../../redux/terminals-reducer.js'
 import Terminals from './Terminals.js'
 
 import {connect} from 'react-redux'

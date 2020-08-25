@@ -7,15 +7,14 @@
   font-size: 40px;
 }
 
-.links a {
-  text-decoration: none;
-}
+
 
 .item {
+  text-decoration: none;
   margin: 0 5px;
   cursor: pointer;
   color: white;
-  transition: font-weight 0.1s linear;
+  transition: color 0.2s linear;
 }
 
 
@@ -24,8 +23,10 @@
   color: black;
 }
 
-a.active {
-  color: red;
+.active {
+  color: black;
+  font-weight: bold;
+  text-decoration: underline;
 }
 
 
