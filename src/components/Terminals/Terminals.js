@@ -48,7 +48,6 @@ function Terminals(props) {
 		
 
 	const onSubmit = (formData) => {
-		console.log()
 		if(formData.terminal && formData.info) {
 			props.addTerminal(formData.terminal, formData.info)
 			formData.terminal = null

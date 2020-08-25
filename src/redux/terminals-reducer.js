@@ -21,10 +21,14 @@ function terminalsReducer(state = initialState, action) {
 			terminalsData: [...state.terminalsData, action.newterminal],
 		}
 	} else if(action.type === DELETE_TERMINALS) {
+		let copyTerminalsData = [...state.terminalsData]
+		if (state.terminalsData.length > 1) {
+			copyTerminalsData.pop()
+		}
 
 		return {
 			...state,
-			terminalsData: [{name: 'Терминал', info: 'Описание'}]
+			terminalsData: copyTerminalsData
 		}
 	}
 
