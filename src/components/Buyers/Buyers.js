@@ -55,19 +55,19 @@ function Buyers(props) {
 
 
 
-	let selectByName = React.createRef()
-	function sortBuyers() {
+
+	function sortBuyers(e) {
 		setPortionNumber(1)
-		setSortName(selectByName.current.value) // если брать sortName из props, то здесь не надо setSortName, так как есть useEffect
-		props.sortBuyers(selectByName.current.value)
+		setSortName(e.currentTarget.value) // если брать sortName из props, то здесь не надо setSortName, так как есть useEffect
+		props.sortBuyers(e.currentTarget.value)
 	}
 
 
-	let selectByAmount = React.createRef()
-	function showBuyers() {
+	
+	function showBuyers(e) {
 		setBuyers(buyersAll)
 		setPortionNumber(1)
-		setAmountBuyers(+selectByAmount.current.value) 
+		setAmountBuyers(+e.currentTarget.value) 
 	}	
 
 
@@ -76,7 +76,7 @@ function Buyers(props) {
 	return (
 		<div className={br.content}>
 			<span className={br.select}>
-				<select value={sortName} onChange={sortBuyers} ref={selectByName}>
+				<select value={sortName} onChange={sortBuyers}>
 					<option value='id'>Сортировать</option>
 					<option value='averageСheck'>Средний чек</option>
 					<option value='shoppingCount'>Количество Покупок</option>
@@ -84,7 +84,7 @@ function Buyers(props) {
 					<option value='name'>По имени</option>
 				</select>
 
-				<select value={amountBuyers} onChange={showBuyers} ref={selectByAmount}>
+				<select value={amountBuyers} onChange={showBuyers}>
 					<option value='Отобразить всех'>Отобразить всех</option>
 					<option value='5'>по 5</option>
 					<option value='10'>top-10</option>

@@ -8,6 +8,7 @@ export function required(value) {
 
 
 
+
 export const minLengthCreator = (minLength) => (value) => {
 	if(value && value.length < minLength) {
 		return `Min symbols - ${minLength}`
